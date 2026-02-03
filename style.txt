@@ -1,0 +1,294 @@
+
+body { 
+    background-color: blue !important; 
+}
+
+
+
+/* --- スマホ・タブレット対応 --- */
+@media screen and (max-width: 768px) {
+/* ヒーローエリア全体 */
+.hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* スライダーの設定 */
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slider img { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    max-width: 100%; 
+    max-height: 100%; 
+    width: auto; 
+    height: auto; 
+    object-fit: contain; 
+    opacity: 0; 
+}
+
+   /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    
+    opacity: 0;
+    /* 全7枚 × 4秒 = 28秒で1周 
+    animation: slideShow 28s infinite;
+}*/
+
+/* 4秒（100% / 7枚 ≒ 14.28%）ごとに正確に開始 
+.slider img:nth-child(1) { animation-delay: 0s; }
+.slider img:nth-child(2) { animation-delay: 4s; }
+.slider img:nth-child(3) { animation-delay: 8s; }
+.slider img:nth-child(4) { animation-delay: 12s; }
+.slider img:nth-child(5) { animation-delay: 16s; }
+.slider img:nth-child(6) { animation-delay: 20s; }
+.slider img:nth-child(7) { animation-delay: 24s; }*/
+
+@keyframes slideShow {
+    0% { opacity: 0; 
+        transform: translate(-50%, -50%) scale(1.0); 
+    } 
+    5% { 
+        opacity: 1; 
+    } 
+    15% { 
+        opacity: 1; 
+    } 
+    20% { 
+        opacity: 0; 
+        transform: translate(-50%, -50%) scale(1.05); 
+    } 
+    100% { 
+        opacity: 0; 
+    }
+
+
+ /*   0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.0);
+    }
+    /* 最初の0.5秒でふわっと表示 (28秒の約1.7%) 
+    1.7% {
+        opacity: 1;
+    }
+    /* 4秒間表示を維持しながら、少しずつズーム (100% / 7枚 = 14.28%) 
+    14.28% {
+        opacity: 1;
+    }
+    /* 次の画像が重なるタイミングで消える 
+    16% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.1); /* ここでズーム完了 
+    }
+    100% {
+        opacity: 0;
+    }*/
+}
+/* 前面のテキスト：中央に浮かせる */
+.hero-text {
+    position: absolute; /* position: relative から absolute に変更 */
+    z-index: 10;        /* 画像より必ず上にくるように */
+    color: #fff;
+    text-shadow: 0px 0px 15px rgba(0,0,0,0.7); /* 写真の上でも読めるように影を強く */
+    text-align: center;
+    pointer-events: none; /* テキストが下のクリックを邪魔しないように */
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.hero h1 span {
+    font-size: 1.4rem;
+    font-weight: normal;
+    display: block;
+    margin-top: 15px;
+}
+/*最新*/
+
+/* 親要素：3つの塊を横に並べ、間隔を40pxにする設定 */ 
+.message-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 50px; 
+    padding: 0 20px; 
+    background: #000
+}
+
+/* 子要素：安全・伝統・技術の各ボックスの設定 */ 
+.message-grid > div { 
+    flex: 0 0 320px; 
+    padding: 30px; 
+    background-color: #ffffff; 
+    border: 1px solid #d1d1d1; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    display: flex; flex-direction: column; 
+}
+
+/* ボックス内の見出し（h3） */ 
+.message-grid > div h3 { 
+    color: #004d40; 
+    margin-top: 0; 
+    margin-bottom: 15px; 
+    text-align: center; 
+}
+
+/* スマホ対応：画面が狭いときは縦に並べる */ 
+@media screen and (max-width: 768px) { 
+    .message-grid { flex-direction: column; 
+        align-items: center; 
+        gap: 30px; 
+    } 
+    .message-grid > div { 
+        width: 100%; 
+        max-width: 90%; 
+        flex: none; 
+    } 
+}
+
+/*旧 1. 親要素：3つのブロックを横に並べ、間隔を40px空ける / 
+.message-grid { 
+    display: flex; 
+    justify-content: center; /* 3つの箱を中央に寄せる / 
+    gap: 40px; /* これが箱同士の間隔（左右40px） / 
+    margin-top: 50px; 
+    padding: 0 20px; 
+}
+
+/* 2. 子要素：安全・伝統・技術のそれぞれの「箱（div）」の設定 / 
+.message-grid > div { 
+    flex: 0 0 320px; /* 箱の幅を320pxで固定します / 
+    padding: 30px; /* 箱の内側の余白 / 
+    background-color: #ffffff; 
+    border: 2px solid #004d40; /* 濃い緑の枠線で「塊」をハッキリさせる / 
+    border-radius: 10px; /* 角を丸くする / 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 軽い影で浮き立たせる /
+
+}
+
+/* 3. 箱の中の見出し（h3） / 
+.message-grid > div h3 { 
+    color: #004d40; font-size: 1.5rem; 
+    margin-top: 0; margin-bottom: 15px; 
+    text-align: center; /* 見出しを中央揃えに / 
+    border-bottom: 1px solid #004d40; /* タイトルの下に線を引く / 
+    padding-bottom: 5px; 
+}
+
+/* 4. 箱の中の文章（p） / 
+.message-grid > div p { 
+    font-size: 1rem; 
+    line-height: 1.8; 
+    margin: 0; 
+}
+
+/* 5. スマホ対応（画面が狭いときは縦に並べる） / 
+@media screen and (max-width: 768px) { 
+    .message-grid { flex-direction: column; /* 縦並びにする / 
+        align-items: center; /* 縦並びの時も中央揃え / 
+        gap: 25px; /* スマホ時は上下の間隔を少し詰める / 
+    } 
+    .message-grid > div { 
+        width: 100%; /* スマホでは横幅いっぱい / 
+        max-width: 90%; 
+        flex: none; /* 固定幅の設定を解除 / 
+    } 
+    }*/
+
+/* 1. 親要素：3つのボックスを横に並べ、間隔を40px空ける / 
+.message-grid { 
+    display: flex; 
+    justify-content: center; /* 中央に寄せる / 
+    gap: 40px; /* これがボックス同士の間隔（左右40px） / 
+    margin-top: 50px; padding: 0 20px; 
+}
+
+/* 2. 子要素：各ボックス（安全・伝統・技術）の大きさを決める / 
+.msg-item { /* ボックスの横幅を指定（お好みに合わせて調整してください） / 
+    width: 320px; /* 固定の幅を持たせます /
+
+}*/
+
+/* 3. ボックス内の見出し（h3） / 
+.msg-item h3 { 
+    color: #004d40; 
+    font-size: 1.4rem; 
+    margin-bottom: 15px; 
+    text-align: center; /* 見出しを中央に / 
+}*/
+
+/* 4. スマホ対応：画面が狭いときは縦に並べる / 
+@media screen and (max-width: 768px) { 
+    .message-grid { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 30px; /* スマホ時は上下の間隔を30pxに / 
+    } 
+    .msg-item { 
+        width: 100%; /* スマホでは横幅いっぱいに使う / 
+        max-width: 90%; } 
+    }
+
+/* 1. PC用の横並び・間隔・区切りの設定 */ 
+/*.message-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 45px;     /* 隣との間隔を約15mm確保 / 
+    margin-top: 50px; 
+    padding: 0 20px; 
+}*/
+
+
+    /* 3. メッセージセクションの横並びを縦並びに変更 */
+    /*.message-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* 4. ブログセクションのカードも縦並びに */
+    .blog-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .blog-card {
+        width: 90%; /* スマホの横幅いっぱいに近く */
+    }
+
+    /* 5. ヘッダーの調整 */
+    header {
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 10px;
+        font-size: 0.8rem;
+    }
+}
