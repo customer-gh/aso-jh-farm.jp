@@ -1,7 +1,7 @@
 
-/*body { 
+body { 
     background-color: blue !important; 
-}*/
+}
 
 
 
@@ -82,7 +82,7 @@
     display: block;
     margin-top: 15px;
 }
-/*最新*/
+
 
 /* 親要素：3つの塊を横に並べ、間隔を40pxにする設定 */ 
 .message-grid { 
