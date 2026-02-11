@@ -1,17 +1,25 @@
-name: Deploy to Lolipop
+name: Deploy to Onamae.com
+
 on:
   push:
     branches:
-      - main
+      - main  # 以前 master を使っていた場合は master に書き換えてください
+
 jobs:
   web-deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Get latest code
+      uses: actions/checkout@v4
+
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /aso-jh-farm/
+        # 先ほど確認したパスを正確に指定します
+        server-dir: /home/r4895047/aso-jh-farm.jp/www/
+        # 初回は全てのファイルを送るために、必要に応じて以下のオプションを検討してください
+        dry-run: false
