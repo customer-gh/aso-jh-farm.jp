@@ -20,6 +20,6 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         # 先ほど確認したパスを正確に指定します
-        server-dir: /home/r4895047/aso-jh-farm.jp/www/
+        server-dir: ./
         # 初回は全てのファイルを送るために、必要に応じて以下のオプションを検討してください
         dry-run: false
