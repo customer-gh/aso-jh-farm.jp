@@ -1,17 +1,20 @@
-name: Deploy to Lolipop
+name: Deploy to Lolipop (FTP)
+
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
+
 jobs:
   web-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /aso-jh-farm/
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP/FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_LOLIPOPSERVER }}
+          username: ${{ secrets.FTP_LOLIPOPUSERNAME }}
+          password: ${{ secrets.FTP_LOLIPOPPASSWORD }}
+          server-dir: ${{ secrets.FTP_DIR_ASO_JH_FARM }}
