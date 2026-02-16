@@ -117,7 +117,7 @@
 
         /* ボックス内の見出し（h3） */
         .message-grid>div h3 {
-            color: #004d40;
+            /*color: #004d40;*/
             margin-top: 0;
             margin-bottom: 15px;
             text-align: center;
