@@ -179,3 +179,28 @@ section {
         width: 90%;
     }
 }
+
+/* ナビゲーションメニューのリンクデザイン */
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0 10px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #004d40; /* マウスを乗せた時に産山ブルーに変わる */
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    nav a {
+        font-size: 0.9rem;
+    }
+}
