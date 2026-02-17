@@ -1,222 +1,169 @@
-<!DOCTYPE html>
-<html lang="ja">
+/* --- 共通設定・PC用 --- */
+body {
+margin: 0;
+padding: 0;
+font-family: "Hiragino Mincho ProN", "HG明朝E", serif; /* UDS指定フォント */
+color: #333;
+line-height: 1.6;
+background-color: #fff;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <title>㈱阿蘇J・Hファーム - デモ</title>
-    <link rel="stylesheet" href="style.css?v=2">
-    <style>
-        /* ヒーローエリアの親要素 */
-        /* 1. 外枠：背景を黒（または濃いグレー）にして、画像がない部分を引き締める */
-        .hero {
-            position: relative;
-            height: 80vh;
-            overflow: hidden;
-            background-color: #1a1a1a;
-            /* ここを産山ブルー #004d40 にしても格好いいです */
-            display: flex;
-            align-items: center;
-            /* 上下中央 */
-            justify-content: center;
-            /* 左右中央 */
-        }
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 50px;
+background: #fff;
+}
 
-        /* 2. スライダー本体：親要素（hero）の中央に固定 */
-        .slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* ヒーローエリア */
+.hero {
+position: relative;
+height: 80vh;
+overflow: hidden;
+background-color: #1a1a1a;
+display: flex;
+align-items: center;
+justify-content: center;
+}
 
-        /* 3. 画像：高さを100%に固定し、横幅は自動調整して中央配置 */
-        .slider img {
-            position: absolute;
-            max-width: 100%;
-            /* 横がはみ出さないように制限 */
-            max-height: 100%;
-            /* 高さを枠内に収める */
-            width: auto;
-            /* 比率を維持 */
-            height: auto;
-            /* 比率を維持 */
+.slider {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
 
-            /* 中央配置のダメ押し */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+.slider img {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+max-width: 100%;
+max-height: 100%;
+width: auto;
+height: auto;
+object-fit: contain;
+opacity: 0;
+}
 
-            object-fit: contain;
-            opacity: 0;
-            animation: slideShow 28s infinite;
-        }
+.hero-text {
+position: relative;
+z-index: 2;
+color: #fff;
+text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+text-align: center;
+width: 100%;
+}
 
-        /* アニメーションの transform を修正（中央配置を維持するため） */
-        @keyframes slideShow {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1.0);
-            }
+.hero h1 {
+font-size: 3rem;
+letter-spacing: 0.1em;
+}
 
-            5% {
-                opacity: 1;
-            }
+/* セクション共通 */
+section {
+padding: 80px 50px;
+text-align: center;
+background-color: #ffffff !important; /* 背景を白に固定 */
+}
 
-            15% {
-                opacity: 1;
-            }
+/* メッセージセクションの文字色修正 */
+#message h2 { color: #333; }
+#message .msg-item h3 { color: #004d40; } /* 産山ブルー */
+#message .msg-item p { color: #555; }
 
-            20% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1.05);
-            }
+.message-grid {
+display: flex;
+justify-content: space-around;
+gap: 30px;
+margin-top: 40px;
+}
 
-            100% {
-                opacity: 0;
-            }
-        }
+.msg-item {
+flex: 1;
+padding: 20px;
+border: 1px solid #eee;
+border-radius: 8px;
+}
 
-        /* テキストを画像の上に重ねる */
-        .hero-text {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-            /* 文字を見やすく */
-            text-align: center;
-            width: 100%;
-        }
+/* ブログセクション */
+.blog-grid {
+display: flex;
+justify-content: center;
+gap: 40px;
+}
 
-        body {
-            margin: 0;
-            font-family: "Hiragino Mincho ProN", serif;
-            color: #333;
-        }
+.blog-card {
+border: 1px solid #ccc;
+padding: 20px;
+width: 300px;
+background: #fff;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 50px;
-            background: #fff;
-        }
+/* --- スマホ・タブレット対応 (@media) --- */
+@media screen and (max-width: 768px) {
+body {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+overflow-x: hidden;
+}
 
-        .hero {
-            height: 80vh;
-            background: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
+header {
+flex-direction: column;
+padding: 15px;
+width: 100%;
+box-sizing: border-box;
+}
 
-        .hero h1 {
-            font-size: 3rem;
-            letter-spacing: 0.1em;
-        }
+nav {
+margin-top: 10px;
+font-size: 0.8rem;
+}
 
-        section {
-            padding: 80px 50px;
-            text-align: center;
-        }
+.hero {
+height: 60vh; /* スマホでは少し高さを抑える */
+width: 100%;
+}
 
-        .message-grid {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 40px;
-        }
+.hero h1 {
+font-size: 1.8rem;
+padding: 0 20px;
+}
 
-        .blog-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
+.hero h1 span {
+font-size: 1.1rem;
+display: block;
+margin-top: 10px;
+}
 
-        .blog-card {
-            border: 1px solid #ccc;
-            padding: 20px;
-            width: 300px;
-        }
-    </style>
-</head>
+section {
+padding: 60px 20px;
+width: 100%;
+box-sizing: border-box;
+}
 
-<body>
-    <header>
-        <div class="logo">㈱阿蘇J・Hファーム</div>
-        <nav>ABOUT / MESSAGE / SYSTEM / BLOG</nav>
+.message-grid {
+flex-direction: column;
+align-items: center;
+width: 100%;
+}
 
-    </header>
+.msg-item {
+width: 90%;
+margin-bottom: 20px;
+}
 
-    <div class="hero">
-        <div class="slider">
-            <img src="assets/photo/IMG_1442.JPG" alt="牛1">
-            <img src="assets/photo/IMG_1443.JPG" alt="牛2">
-            <img src="assets/photo/IMG_1447.JPG" alt="牛3">
-            <img src="assets/photo/IMG_1448.JPG" alt="牛4">
-            <img src="assets/photo/IMG_1451.JPG" alt="牛5">
-            <img src="assets/photo/IMG_1452.JPG" alt="牛6">
-            <img src="assets/photo/IMG_1455.JPG" alt="牛7">
-        </div>
-        <div class="hero-text">
-            <h1>産山の風土と、親子三代の絆。<br><span>嘘のない牛づくりを、この大地から。</span></h1>
-        </div>
-    </div>
-    </div>
+.blog-grid {
+flex-direction: column;
+align-items: center;
+width: 100%;
+}
 
-    </div>
-
-
-    <section id="message">
-        <h2>私たちが大切にしていること</h2>
-        <div class="message-grid">
-            <div class="msg-item">
-                <h3>安全</h3>
-                <p>産山の清らかな水と一貫飼育の徹底。誕生から出荷まで、一頭一頭に命の責任を持ちます。</p>
-            </div>
-            <div class="msg-item">
-                <h3>伝統</h3>
-                <p>親子三代。長年培った確かな目が、阿蘇が誇る和牛本来の旨みを引き出します。</p>
-            </div>
-            <div class="msg-item">
-                <h3>技術</h3>
-                <p>ITは、牛と向き合う時間を生むために。効率化の先にあるのは、変わらぬ愛情です。</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" style="background: #f9f9f9;">
-        <h2>産山の大地から届ける日記</h2>
-        <div class="blog-grid">
-            <div class="blog-card">
-                <h3>三代目の修行日記</h3>
-                <p>若き跡取りの挑戦。27歳の等身大の言葉。</p>
-            </div>
-            <div class="blog-card">
-                <h3>社長の日々是之</h3>
-                <p>代表が語る、牛と産山と日々の想い。</p>
-            </div>
-        </div>
-    </section>
-    <script> window.onload = function () {
-            const displayTime = 4;
-            const images = document.querySelectorAll('.slider img');
-            const totalCount = images.length;
-            if (totalCount > 0) {
-                const totalDuration = displayTime * totalCount;
-                images.forEach((img, index) => {
-                    img.style.animationName = 'slideShow';
-                    img.style.animationIterationCount = 'infinite';
-                    img.style.animationTimingFunction = 'linear';
-                    img.style.animationDuration = totalDuration + 's';
-                    img.style.animationDelay = (displayTime * index) + 's';
-                });
-            }
-        };
-
-    </script>
-</body>
-
-</html>
+.blog-card {
+width: 90%;
+}
+}
