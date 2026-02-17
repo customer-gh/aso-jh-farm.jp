@@ -56,6 +56,9 @@ header {
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 100%;
+    
+    /* 追加：現在の位置から100px上にずらす */
+    top: -100px; 
 }
 
 .hero h1 {
