@@ -92,6 +92,12 @@
             margin-top: 15px;
         }
 
+        /* index.html 内の <style> セクションを修正 */
+section {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #ffffff; /* ここを白に指定 */
+}
 
         /* 親要素：3つの塊を横に並べ、間隔を40pxにする設定 */
         .message-grid {
