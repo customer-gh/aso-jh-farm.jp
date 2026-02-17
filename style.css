@@ -155,6 +155,10 @@ section {
         margin-top: 10px;
     }
 
+    .hero-text {
+        top: -50px; /* スマホでは画面が狭いので、100pxだと上がりすぎる場合は50px程度がおすすめです */
+    }
+
     section {
         padding: 60px 20px;
         width: 100%;
