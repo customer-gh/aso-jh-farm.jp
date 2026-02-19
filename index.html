@@ -146,12 +146,14 @@
 <body>
     <header>
         <div class="logo">㈱阿蘇J・Hファーム</div>
-        <nav>
-    <a href="coming-soon.html">ABOUT</a> / 
-    <a href="coming-soon.html">MESSAGE</a> / 
-    <a href="coming-soon.html">SYSTEM</a> / 
-    <a href="coming-soon.html">BLOG</a>
-</nav>
+        
+        <nav class="header-nav">
+            <a href="about.html">ABOUT</a> / 
+            <a href="message.html">MESSAGE</a> / 
+            <a href="system.html">SYSTEM</a> / 
+            <a href="blog.html">BLOG</a> / 
+            <a href="press-release.html">PRESS RELEASE</a>
+        </nav>
 
     </header>
 
@@ -172,6 +174,70 @@
             <h1>産山の風土と、親子三代の絆。<br><span>嘘のない牛づくりを、この大地から。</span></h1>
         </div>
     </div>
+
+<div class="news-banner-container">
+    <div class="news-banner">
+        <span class="news-label">News</span>
+        <span class="news-text">産山のIT放牧モデルをプレスリリースしました。</span>
+        <a href="press-release.html" class="news-button">詳しく見る</a>
+    </div>
+</div>
+
+<style>
+/* ニュースバナーのスタイル */
+.news-banner-container {
+    width: 100%;
+    background-color: #f9f9f9; /* 控えめな背景色 */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.news-banner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: "serif", "Noto Serif JP"; /* サイトのトーンに合わせる */
+}
+
+.news-label {
+    background: #5d6d4e; /* 牧場らしい深緑、またはサイトのキーカラー */
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
+.news-text {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.news-button {
+    color: #5d6d4e;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.news-button:hover {
+    opacity: 0.7;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .news-banner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+</style>
+
     </div>
 
     </div>
@@ -225,6 +291,14 @@
         };
 
     </script>
+
+    <footer style="text-align: center; padding: 40px 0; color: #666;">
+        <div class="footer-links" style="margin-bottom: 20px;">
+            <a href="press-release.html" style="text-decoration: none; color: #666; font-size: 0.9rem;">プレスリリース（報道関係者の方へ）</a>
+        </div>
+        <p style="font-size: 0.8rem;">&copy; 2024-2026 Aso J.H Farm All Rights Reserved.</p>
+    </footer>
+
 </body>
 
 </html>
